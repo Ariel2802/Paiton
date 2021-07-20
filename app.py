@@ -1,22 +1,15 @@
 from flask import Flask
 from flask.globals import request
 from flask.json import jsonify
-#from flask_cors import CORS
-##from numpy.core.numeric import cross
-
-#CORS(app)
-#cors = CORS(app, resources={
-#    r"/*": {
-#       "origins": "*"
-#    }
-#})
-#app.config['CORS_HEADERS'] = 'application/json; charset=utf-8'
-#app.config['CORS_HEADERS'] = 'Content-Type'
-# Testing Route
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
-#CORS(app)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+app.config['CORS_HEADERS'] = 'Content-Type'
 from users import users
+
+@cross_origin()
 
 @app.route('/test')
 def test():
